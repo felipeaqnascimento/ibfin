@@ -1,0 +1,52 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'CentrosCustos' | translate }}</legend>
+		
+		<div class="container" style="padding-bottom: 15px; padding-right: 4%;" ng-show="mode != 'create'">
+			<div class="col-sm-2" style="float: right;" ng-show="mode != 'create'">
+				<a role="button" class="btn btn-info btn-block" href='#/centrosCustos/new'>{{ 'create' | translate }}</a>
+			</div>
+		</div>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form name="centrosCustosForm" class="well form-horizontal" novalidate >
+			<div class="form-group">
+				<label for="centrosCustos_oidCentrosCustos" class="col-sm-2 control-label">{{ 'centrosCustos.oidCentrosCustos' | translate }}:</label>
+				<div class="col-sm-2">
+					<input type="text" id="centrosCustos_oidCentrosCustos" name="oidCentrosCustos" ng-model="centrosCustos.oidCentrosCustos" class="form-control" maxLength="20"  ng-disabled="true"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="centrosCustos_dsCentrosCustos" class="col-sm-2 control-label">{{ 'centrosCustos.dsCentrosCustos' | translate }}:</label>
+				<div class="col-sm-8">
+					<input type="text" id="centrosCustos_dsCentrosCustos" name="dsCentrosCustos" ng-model="centrosCustos.dsCentrosCustos" class="form-control" maxLength="100" required />
+				</div>
+				<div class="col-sm-1" style="padding: 0 0 0 0;"><p style="padding-top: 10px;">*</p></div>
+			</div>
+			<div class="form-group">
+				<label for="centrosCustos_nmGerente" class="col-sm-2 control-label">{{ 'centrosCustos.nmGerente' | translate }}:</label>
+				<div class="col-sm-8">
+					<input type="text" id="centrosCustos_nmGerente" name="nmGerente" ng-model="centrosCustos.nmGerente" class="form-control" maxLength="100" required />
+				</div>
+				<div class="col-sm-1" style="padding: 0 0 0 0;"><p style="padding-top: 10px;">*</p></div>
+			</div>
+			
+			<div class="input-group">
+				<p>{{ 'campos.obrigatorios.tela' | translate }}</p>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-warning btn-block" ng-click="delete(centrosCustos.oidCentrosCustos)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" href="#/centrosCustos">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-info btn-block" ng-disabled="centrosCustosForm.dsCentrosCustos.$invalid || centrosCustosForm.nmGerente.$invalid" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

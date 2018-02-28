@@ -1,0 +1,45 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'TiposTitulos' | translate }}</legend>
+		
+		<div class="container" style="padding-bottom: 15px; padding-right: 4%;" ng-show="mode != 'create'">
+			<div class="col-sm-2" style="float: right;" ng-show="mode != 'create'">
+				<a role="button" class="btn btn-info btn-block" href='#/tiposTitulos/new'>{{ 'create' | translate }}</a>
+			</div>
+		</div>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form name="tiposTitulosForm" class="well form-horizontal" novalidate>
+			<div class="form-group">
+				<label for="tiposTitulos_oidTiposTitulos" class="col-sm-2 control-label">{{ 'tiposTitulos.oidTiposTitulos' | translate }}:</label>
+				<div class="col-sm-2">
+					<input type="text" id="tiposTitulos_oidTiposTitulos" name="oidTiposTitulos" ng-model="tiposTitulos.oidTiposTitulos" class="form-control" maxLength="20"  ng-disabled="true"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="tiposTitulos_dsTiposTitulos" class="col-sm-2 control-label">{{ 'tiposTitulos.dsTiposTitulos' | translate }}:</label>
+				<div class="col-sm-9">
+					<input type="text" id="tiposTitulos_dsTiposTitulos" name="dsTiposTitulos" ng-model="tiposTitulos.dsTiposTitulos" class="form-control" maxLength="100" required />
+				</div>
+				<div class="col-sm-1" style="padding: 0 0 0 0;"><p style="padding-top: 10px;">*</p></div>
+			</div>
+			
+			<div class="input-group">
+				<p>{{ 'campos.obrigatorios.tela' | translate }}</p>
+			</div>
+			
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-warning btn-block" ng-click="delete(tiposTitulos.oidTiposTitulos)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" href="#/tiposTitulos" onclick="setTimeout(tabelaNova, 200);">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-info btn-block" ng-disabled="tiposTitulosForm.dsTiposTitulos.$invalid" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

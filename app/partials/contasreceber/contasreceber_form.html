@@ -1,0 +1,195 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'ContasReceber' | translate }}</legend>
+
+		<div class="container" style="padding-bottom: 15px; padding-right: 4%;" ng-show="mode != 'create'">
+			<div class="col-sm-2" style="float: right;" ng-show="mode != 'create'">
+				<a role="button" class="btn btn-info btn-block" href='#/contasReceber/new'>{{ 'create' | translate }}</a>
+			</div>
+		</div>
+
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form name="contasreceberForm" class="well form-horizontal" novalidate>
+
+			<div class="form-group">
+				<label for="contasReceber_oidContasReceber" class="col-sm-2 control-label">{{ 'contasReceber.oidContasReceber' | translate }}:</label>
+				<div class="col-sm-2">
+					<input type="text" id="contasReceber_oidContasReceber" name="oidContasReceber" ng-model="contasReceber.oidContasReceber" class="form-control" maxLength="20"  ng-disabled="true"/>
+				</div>
+				<label for="contasReceber_vrJuros" class="col-sm-4 control-label">{{ 'contasReceber.vrJuros' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrJuros" name="vrJuros" placeholder="0,00" ng-model="contasReceber.vrJuros" class="form-control" maxLength="20" required/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_nrDocumentoFiscal" class="col-sm-2 control-label">{{ 'contasReceber.nrDocumentoFiscal' | translate }}:</label>
+				<div class="col-sm-2">
+					<input type="text" id="contasReceber_nrDocumentoFiscal" name="nrDocumentoFiscal" ng-model="contasReceber.nrDocumentoFiscal" class="form-control" maxLength="100" required/>
+				</div>
+				<label for="contasReceber_vrBruto" class="col-sm-4 control-label">{{ 'contasReceber.vrBruto' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrBruto" name="vrBruto" placeholder="0,00" ng-model="contasReceber.vrBruto" class="form-control" maxLength="20" required/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_oidPessoas" class="col-sm-2 control-label">{{ 'contasPagar.oidPessoas' | translate }}:</label>
+				<div class="col-sm-3">
+					<select id="contasReceber_pessoas" ng-model="contasReceber.oidPessoas" name="oidPessoas" class="form-control" required>
+						<option value="">[Selecione]</option>
+                        <option ng-repeat="pessoas in items.pessoass" title="{{pessoas.label}}" ng-selected="{{pessoas.value == contasReceber.pessoas}}" value="{{pessoas.value}}">{{pessoas.label}}</option>
+                    </select>
+				</div>
+				<label for="contasReceber_vrDesconto" class="col-sm-3	 control-label">{{ 'contasReceber.vrDesconto' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrDesconto" name="vrDesconto" placeholder="0,00" ng-model="contasReceber.vrDesconto" class="form-control" maxLength="20" required/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_dtPrevisao" class="col-sm-2 control-label">{{ 'contasReceber.dtPrevisao' | translate }}:</label>
+				<div class="col-sm-2">
+					<input id="contasReceber_dtPrevisao" bs-datepicker data-date-format="dd/MM/yyyy" placeholder="01/01/1900" data-autoclose="1" ng-model="contasReceber.dtPrevisao" name="dtPrevisao" class="form-control" required/>
+				</div>
+				<label for="contasReceber_vrBaseInss" class="col-sm-4 control-label">{{ 'contasReceber.vrBaseInss' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrBaseInss" name="vrBaseInss" placeholder="0,00" ng-model="contasReceber.vrBaseInss" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_dtVencimento" class="col-sm-2 control-label">{{ 'contasReceber.dtVencimento' | translate }}:</label>
+				<div class="col-sm-2">
+					<input id="contasReceber_dtVencimento" bs-datepicker data-date-format="dd/MM/yyyy" placeholder="01/01/1900" data-autoclose="1" ng-model="contasReceber.dtVencimento" name="dtVencimento" class="form-control" />
+				</div>
+				<label for="contasReceber_vrDeducaoInss" class="col-sm-4 control-label">{{ 'contasReceber.vrDeducaoInss' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrDeducaoInss" name="vrDeducaoInss" placeholder="0,00" ng-model="contasReceber.vrDeducaoInss" class="form-control" maxLength="20" />
+				</div>
+			</div>	
+			<div class="form-group">
+				<label for="contasReceber_dtRecebimento" class="col-sm-2 control-label">{{ 'contasReceber.dtRecebimento' | translate }}:</label>
+				<div class="col-sm-2">
+					<input id="contasReceber_dtRecebimento" bs-datepicker data-date-format="dd/MM/yyyy" placeholder="01/01/1900" data-autoclose="1" ng-model="contasReceber.dtRecebimento" name="dtRecebimento" class="form-control" />
+				</div>
+				<label for="contasReceber_vrBaseIssqn" class="col-sm-4 control-label">{{ 'contasReceber.vrBaseIssqn' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrBaseIssqn" name="vrBaseIssqn" placeholder="0,00" ng-model="contasReceber.vrBaseIssqn" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_oidCentrosCustos" class="col-sm-2 control-label">{{ 'contasReceber.oidCentrosCustos' | translate }}:</label>
+				<div class="col-sm-3">
+					<select id="contasReceber_centrosCustos" ng-model="contasReceber.oidCentrosCustos" name="oidCentrosCustos" class="form-control">
+						<option value="">[Selecione]</option>
+                        <option ng-repeat="centrosCustos in items.centrosCustoss" title="{{centrosCustos.label}}" ng-selected="{{centrosCustos.value == contasReceber.centrosCustos}}" value="{{centrosCustos.value}}">{{centrosCustos.label}}</option>
+                    </select>
+				</div>
+				<label for="contasReceber_vrDeducaoIssqn" class="col-sm-3 control-label">{{ 'contasReceber.vrDeducaoIssqn' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrDeducaoIssqn" name="vrDeducaoIssqn" placeholder="0,00" ng-model="contasReceber.vrDeducaoIssqn" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_oidBancos" class="col-sm-2 control-label">{{ 'contasReceber.oidBancos' | translate }}:</label>
+				<div class="col-sm-3	">
+					<select id="contasReceber_bancos" ng-model="contasReceber.oidBancos" name="oidBancos" class="form-control" required>
+						<option value="">[Selecione]</option>
+                        <option ng-repeat="bancos in items.bancoss" title="{{bancos.label}}" ng-selected="{{bancos.value == contasReceber.bancos}}" value="{{bancos.value}}">{{bancos.label}}</option>
+                    </select>
+				</div>
+				<label for="contasReceber_vrBaseCsll" class="col-sm-3 control-label">{{ 'contasReceber.vrBaseCsll' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrBaseCsll" name="vrBaseCsll" placeholder="0,00" ng-model="contasReceber.vrBaseCsll" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_dsFormaRecebimento" class="col-sm-2 control-label">{{ 'contasReceber.dsFormaRecebimento' | translate }}:</label>
+				<div class="col-sm-3">
+					<input type="text" id="contasReceber_dsFormaRecebimento" name="dsFormaRecebimento" ng-model="contasReceber.dsFormaRecebimento" class="form-control" maxLength="20" />
+				</div>
+				<label for="contasReceber_vrDeducaoCsll" class="col-sm-3 control-label">{{ 'contasReceber.vrDeducaoCsll' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrDeducaoCsll" name="vrDeducaoCsll" placeholder="0,00" ng-model="contasReceber.vrDeducaoCsll" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_dsObservacao" class="col-sm-2 control-label">{{ 'contasReceber.dsObservacao' | translate }}:</label>
+				<div class="col-sm-3">
+					<input type="text" id="contasReceber_dsObservacao" name="dsObservacao" ng-model="contasReceber.dsObservacao" class="form-control" maxLength="500" />
+				</div>
+				<label for="contasReceber_vrBasePis" class="col-sm-3 control-label">{{ 'contasReceber.vrBasePis' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrBasePis" name="vrBasePis" placeholder="0,00" ng-model="contasReceber.vrBasePis" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_vrDeducaoPis" class="col-sm-2 control-label">{{ 'contasReceber.vrDeducaoPis' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrDeducaoPis" name="vrDeducaoPis" placeholder="0,00" ng-model="contasReceber.vrDeducaoPis" class="form-control" maxLength="20" />
+				</div>
+				<label for="contasReceber_vrBaseCofins" class="col-sm-4 control-label">{{ 'contasReceber.vrBaseCofins' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrBaseCofins" name="vrBaseCofins" placeholder="0,00" ng-model="contasReceber.vrBaseCofins" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_vrDeducaoCofins" class="col-sm-2 control-label">{{ 'contasReceber.vrDeducaoCofins' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrDeducaoCofins" name="vrDeducaoCofins" placeholder="0,00" ng-model="contasReceber.vrDeducaoCofins" class="form-control" maxLength="20" />
+				</div>
+				<label for="contasReceber_vrBaseIrpj" class="col-sm-4 control-label">{{ 'contasReceber.vrBaseIrpj' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrBaseIrpj" name="vrBaseIrpj" placeholder="0,00" ng-model="contasReceber.vrBaseIrpj" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_vrDeducaoIrpj" class="col-sm-2 control-label">{{ 'contasReceber.vrDeducaoIrpj' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrDeducaoIrpj" name="vrDeducaoIrpj" placeholder="0,00" ng-model="contasReceber.vrDeducaoIrpj" class="form-control" maxLength="20" />
+				</div>
+				<label for="contasReceber_vrOutrasDeducoes" class="col-sm-4 control-label">{{ 'contasReceber.vrOutrasDeducoes' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasReceber_vrOutrasDeducoes" name="vrOutrasDeducoes" placeholder="0,00" ng-model="contasReceber.vrOutrasDeducoes" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			
+			<!-- <div class="form-group">
+				<label for="contasReceber_dsUsuAlter" class="col-sm-2 control-label">{{ 'contasReceber.dsUsuAlter' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="contasReceber_dsUsuAlter" name="dsUsuAlter" ng-model="contasReceber.dsUsuAlter" class="form-control" maxLength="30" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_dtUltAlter" class="col-sm-2 control-label">{{ 'contasReceber.dtUltAlter' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="contasReceber_dtUltAlter" bs-datepicker data-autoclose="1" ng-model="contasReceber.dtUltAlter" name="dtUltAlter" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasReceber_vsVersao" class="col-sm-2 control-label">{{ 'contasReceber.vsVersao' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="contasReceber_vsVersao" name="vsVersao" ng-model="contasReceber.vsVersao" class="form-control" maxLength="20" />
+				</div>
+			</div>  -->
+
+		<!--	<div class="input-group">
+				<p>{{ 'campos.obrigatorios.tela' | translate }}</p>
+			</div> -->
+
+			<div class="input-group">
+					<p>{{ 'campos.obrigatorios.tela' | translate }}</p>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-warning btn-block" ng-click="delete(contasReceber.oidContasReceber)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" href="#/contasReceber" onclick="setTimeout(tabelaNova, 200);">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-info btn-block" ng-disabled="contasreceberForm.nrDocumentoFiscal.$invalid || contasreceberForm.oidPessoas.$invalid || contasreceberForm.vrBruto.$invalid || contasreceberForm.vrDesconto.$invalid || contasreceberForm.vrJuros.$invalid || contasreceberForm.dtPrevisao.$invalid" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

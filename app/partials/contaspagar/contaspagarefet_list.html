@@ -1,0 +1,64 @@
+
+<fieldset class="col-sm-12 bordure fieldset">
+	<legend class="legende">{{ 'EfetuarPagamento' | translate }}</legend>
+
+	<div ng-include src="'partials/message-include.html'"></div>
+
+	<table border="0" cellspacing="5" cellpadding="5">
+		<tbody>
+			<tr>
+				<td>{{ 'contasPagar.dtPrevisao' | translate }}:</td>
+				<td><input type="date" id="dtPrev" placeholder="01/01/1900"
+					mask="39/19/9999" name="dtPrev" class="form-control input-sm"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<br /> <br />
+
+	<table id="tabelaEfet" class="table table-striped table-bordered"
+		cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th class="no-sort"></th>
+				<th>{{ 'contasPagar.oidPessoas' | translate }}</th>
+				<th>{{ 'contasPagar.nrDocumentoFiscal' | translate }}</th>
+				<th>{{ 'contasPagar.dtVencimento' | translate }}</th>
+				<th>{{ 'contasPagar.dtPrevisao' | translate }}</th>
+				<th>{{ 'contasPagar.vrBruto' | translate }}</th>
+				<th>{{ 'contasPagar.vrJuros' | translate }}</th>
+				<th>{{ 'contasPagar.vrDesconto' | translate }}</th>
+				<th>{{ 'contasPagar.oidCentrosCustos' | translate }}</th>
+				<th>{{ 'contasPagar.oidBancos' | translate }}</th>
+				<th class="no-sort"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contasPagar in contasPagars">
+				<td><input type="checkbox" id="efetMarca"
+				ng-model="checked" checked></td>
+				<td>{{contasPagar.pessoa.nmPessoa}}</td>
+				<td>{{contasPagar.nrDocumentoFiscal}}</td>
+				<td>{{contasPagar.dtVencimento | date:'dd/MM/yyyy'}}</td>
+				<td><input id="contasPagar_dtPrevisao" 
+					bs-datepicker
+					data-date-format="dd/MM/yyyy" 
+					placeholder="01/01/1900"
+					data-autoclose="1" 
+					ng-model="contasPagar.dtPrevisao" 
+					size="11"
+					disabled name="dtPrevisao" 
+					class="form-control" 
+					ng-disabled="	checked"/></td>
+				<td>R$ {{contasPagar.vrBruto | number:2 }}</td>
+				<td>R$ {{contasPagar.vrJuros | number:2 }}</td>
+				<td>R$ {{contasPagar.vrDesconto | number:2 }}</td>	
+				<td>{{contasPagar.centrosCusto.dsCentrosCustos}}</td>
+				<td>{{contasPagar.banco.nmBanco}}</td>
+				<td><button class="btn btn-info btn-sm" 
+						ng-click="saveTabular(contasPagar)">{{ 'save' | translate }}</button></td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>
+

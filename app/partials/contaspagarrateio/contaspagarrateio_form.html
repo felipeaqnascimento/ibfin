@@ -1,0 +1,68 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'ContasPagarRateio' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="contasPagarRateio_oidContasPagarRateio" class="col-sm-2 control-label">{{ 'contasPagarRateio.oidContasPagarRateio' | translate }}:</label>
+				<div class="col-sm-2">
+					<input type="text" id="contasPagarRateio_oidContasPagarRateio" name="oidContasPagarRateio" ng-model="contasPagarRateio.oidContasPagarRateio" class="form-control" maxLength="20"  ng-disabled="mode != 'create'"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasPagarRateio_oidContasPagar" class="col-sm-2 control-label">{{ 'contasPagarRateio.oidContasPagar' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" id="contasPagarRateio_oidContasPagar" name="oidContasPagar" ng-model="contasPagarRateio.oidContasPagar" class="form-control" maxLength="100" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasPagarRateio_oidCentrosCustos" class="col-sm-2 control-label">{{ 'contasPagarRateio.oidCentrosCustos' | translate }}:</label>
+				<div class="col-sm-4">
+					<select id="contasPagar_centrosCustos" ng-model="contasPagarRateio.oidCentrosCustos" name="oidCentrosCustos" class="form-control">
+						<option value="">[Selecione]</option>
+                        <option ng-repeat="centrosCustos in items.centrosCustoss" title="{{centrosCustos.label}}" ng-selected="{{centrosCustos.value == contasPagarRateio.centrosCustos}}" value="{{centrosCustos.value}}">{{centrosCustos.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasPagarRateio_vrRateio" class="col-sm-2 control-label">{{ 'contasPagarRateio.vrRateio' | translate }}:</label>
+				<div class="col-sm-3">
+					<input mask-money type="text" id="contasPagarRateio_vrRateio" name="vrRateio" placeholder="0,00" ng-model="contasPagarRateio.vrRateio" ui-money-mask="2" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			
+			<!-- <div class="form-group">
+				<label for="contasPagarRateio_dsUsuAlter" class="col-sm-2 control-label">{{ 'contasPagarRateio.dsUsuAlter' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="contasPagarRateio_dsUsuAlter" name="dsUsuAlter" ng-model="contasPagarRateio.dsUsuAlter" class="form-control" maxLength="30" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasPagarRateio_dtUltAlter" class="col-sm-2 control-label">{{ 'contasPagarRateio.dtUltAlter' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="contasPagarRateio_dtUltAlter" bs-datepicker data-autoclose="1" ng-model="contasPagarRateio.dtUltAlter" name="dtUltAlter" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasPagarRateio_vsVersao" class="col-sm-2 control-label">{{ 'contasPagarRateio.vsVersao' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="contasPagarRateio_vsVersao" name="vsVersao" ng-model="contasPagarRateio.vsVersao" class="form-control" maxLength="20" />
+				</div>
+			</div> -->
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(contasPagarRateio.oidContasPagarRateio)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" href="#/contasPagarRateio">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-info btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

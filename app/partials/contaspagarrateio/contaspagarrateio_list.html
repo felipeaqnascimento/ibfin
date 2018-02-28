@@ -1,0 +1,32 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'ContasPagarRateio' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'contasPagarRateio.oidContasPagarRateio' | translate }}</th>
+						<th>{{ 'contasPagarRateio.oidContasPagar' | translate }}</th>
+						<th>{{ 'contasPagarRateio.oidCentrosCustos' | translate }}</th>
+						<th>{{ 'contasPagarRateio.vrRateio' | translate }}</th>
+						<th>{{ 'contasPagarRateio.dsUsuAlter' | translate }}</th>
+						<th>{{ 'contasPagarRateio.dtUltAlter' | translate }}</th>
+						<th>{{ 'contasPagarRateio.vsVersao' | translate }}</th>
+						<th><a class="btn btn-info" href='#/contasPagarRateio/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="contasPagarRateio in contasPagarRateios">
+						<td>{{contasPagarRateio.oidContasPagarRateio}}</td>
+						<td>{{contasPagarRateio.oidContasPagar}}</td>
+						<td>{{contasPagarRateio.oidCentrosCustos | number }}</td>
+						<td>{{contasPagarRateio.vrRateio | number }}</td>
+						<td>{{contasPagarRateio.dsUsuAlter}}</td>
+						<td>{{contasPagarRateio.dtUltAlter | date:'shortDate'}}</td>
+						<td>{{contasPagarRateio.vsVersao | number }}</td>
+						<td><a class="btn btn-info" href="#/contasPagarRateio/{{contasPagarRateio.oidContasPagarRateio}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

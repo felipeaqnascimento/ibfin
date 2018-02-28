@@ -1,0 +1,59 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'Bancos' | translate }}</legend>
+		
+		<div class="container" style="padding-bottom: 15px; padding-right: 4%;" ng-show="mode != 'create'">
+			<div class="col-sm-2" style="float: right;" ng-show="mode != 'create'">
+				<a role="button" class="btn btn-info btn-block" href='#/bancos/new'>{{ 'create' | translate }}</a>
+			</div>
+		</div>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+		
+		<form name="bancosForm" class="well form-horizontal" novalidate >
+			<div class="form-group">
+				<label for="bancos_oidBancos" class="col-sm-2 control-label">{{ 'bancos.oidBancos' | translate }}:</label>
+				<div class="col-sm-2">
+					<input type="text" id="bancos_oidBancos" name="oidBancos" ng-model="bancos.oidBancos" class="form-control" maxLength="20"  ng-disabled="true"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="bancos_cdBanco" class="col-sm-2 control-label">{{ 'bancos.cdBanco' | translate }}:</label>
+				<div class="col-sm-1">
+					<input type="text" id="bancos_cdBanco" name="cdBanco" ng-model="bancos.cdBanco" class="form-control" maxLength="20" required />
+				</div>
+				<div class="col-sm-1" style="padding: 0 0 0 0;"><p style="padding-top: 10px;">*</p></div>
+				
+				<label for="bancos_nmBanco" class="col-sm-2 control-label">{{ 'bancos.nmBanco' | translate }}:</label>
+				<div class="col-sm-5">
+					<input type="text" id="bancos_nmBanco" name="nmBanco" ng-model="bancos.nmBanco" class="form-control" maxLength="100" required />
+				</div>
+				<div class="col-sm-1" style="padding: 0 0 0 0;"><p style="padding-top: 10px;">*</p></div>
+			</div>
+			
+			<div class="form-group">
+				<label for="bancos_nmAbreviado" class="col-sm-2 control-label">{{ 'bancos.nmAbreviado' | translate }}:</label>
+				<div class="col-sm-3">
+					<input type="text" id="bancos_nmAbreviado" name="nmAbreviado" ng-model="bancos.nmAbreviado" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			
+			<div class="input-group">
+				<p>{{ 'campos.obrigatorios.tela' | translate }}</p>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-warning btn-block" ng-click="delete(bancos.oidBancos)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" href="#/bancos" onclick="setTimeout(tabelaNova, 200);">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-info btn-block" ng-disabled="bancosForm.cdBanco.$invalid || bancosForm.nmBanco.$invalid" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

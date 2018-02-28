@@ -1,0 +1,151 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'ProgramarPagamento' | translate }}</legend>
+		
+		<div class="container" style="padding-bottom: 15px; padding-right: 4%;" ng-show="mode != 'create'">
+			<div class="col-sm-2" style="float: right;" ng-show="mode != 'create'">
+				<a role="button" class="btn btn-info btn-block" href='#/contasPagar/new'>{{ 'create' | translate }}</a>
+			</div>
+		</div>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form name="contaspagarForm" class="well form-horizontal" novalidate>
+			<div class="form-group">
+				<label for="contasPagar_oidContasPagar" class="col-sm-2 control-label">{{ 'contasPagar.oidContasPagar' | translate }}:</label>
+				<div class="col-sm-2">
+					<input type="text" id="contasPagar_oidContasPagar" name="oidContasPagar" ng-model="contasPagar.oidContasPagar" class="form-control" maxLength="20"  ng-disabled="true"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="contasPagar_nrDocumentoFiscal" class="col-sm-2 control-label">{{ 'contasPagar.nrDocumentoFiscal' | translate }}:</label>
+				<div class="col-sm-2">
+					<input type="text" id="contasPagar_nrDocumentoFiscal" name="nrDocumentoFiscal" ng-model="contasPagar.nrDocumentoFiscal" class="form-control" maxLength="100" required/>
+				</div>
+				<div class="col-sm-1" style="padding: 0 0 0 0;"><p style="padding-top: 10px;">*</p></div>
+			</div>
+			<div class="form-group">
+				<label for="contasPagar_oidPessoas" class="col-sm-2 control-label">{{ 'contasPagar.oidPessoas' | translate }}:</label>
+				<div class="col-sm-4">
+					<select id="contasPagar_pessoas" ng-model="contasPagar.oidPessoas" name="oidPessoas" class="form-control" required>
+						<option value="">[Selecione]</option>
+                        <option ng-repeat="pessoas in items.pessoass" title="{{pessoas.label}}" ng-selected="{{pessoas.value == contasPagar.pessoas}}" value="{{pessoas.value}}">{{pessoas.label}}</option>
+                    </select>
+				</div>
+				<div class="col-sm-1" style="padding: 0 0 0 0;"><p style="padding-top: 10px;">*</p></div>
+				
+				<label for="contasPagar_vrBruto" class="col-sm-1 control-label" >{{ 'contasPagar.vrBruto' | translate }}:</label>
+				<div class="col-sm-2">
+					<input mask-money type="text" id="contasPagar_vrBruto" name="vrBruto" ng-model="contasPagar.vrBruto" placeholder="0,00" class="form-control" maxLength="20" required/>
+				</div>
+				<div class="col-sm-1" style="padding: 0 0 0 0;"><p style="padding-top: 10px;">*</p></div>
+			</div>
+			<div class="form-group">
+				<label for="contasPagar_dtPrevisao" class="col-sm-2 control-label">{{ 'contasPagar.dtPrevisao' | translate }}:</label>
+				<div class="col-sm-2">
+					<input id="contasPagar_dtPrevisao" bs-datepicker data-date-format="dd/MM/yyyy" placeholder="01/01/1900" data-autoclose="1" ng-model="contasPagar.dtPrevisao" name="dtPrevisao" class="form-control" required/>
+				</div>
+				<div class="col-sm-1" style="padding: 0 0 0 0;"><p style="padding-top: 10px;">*</p></div>
+				
+				<label for="contasPagar_dtVencimento" class="col-sm-3 control-label">{{ 'contasPagar.dtVencimento' | translate }}:</label>
+				<div class="col-sm-2">
+					<input id="contasPagar_dtVencimento" bs-datepicker data-date-format="dd/MM/yyyy" placeholder="01/01/1900" data-autoclose="1" ng-model="contasPagar.dtVencimento" name="dtVencimento" class="form-control" required/>
+				</div>
+				<div class="col-sm-1" style="padding: 0 0 0 0;"><p style="padding-top: 10px;">*</p></div>
+			</div>
+			<div class="form-group">
+				<label for="contasPagar_oidCentrosCustos" class="col-sm-2 control-label">{{ 'contasPagar.oidCentrosCustos' | translate }}:</label>
+				<div class="col-sm-3">
+					<select id="contasPagar_centrosCustos" ng-model="contasPagar.oidCentrosCustos" name="oidCentrosCustos" class="form-control">
+						<option value="">[Selecione]</option>
+                        <option ng-repeat="centrosCustos in items.centrosCustoss" title="{{centrosCustos.label}}" ng-selected="{{centrosCustos.value == contasPagar.centrosCustos}}" value="{{centrosCustos.value}}">{{centrosCustos.label}}</option>
+                    </select>
+				</div>
+				<label for="contasPagar_oidBancos" class="col-sm-2 control-label">{{ 'contasPagar.oidBancos' | translate }}:</label>
+				<div class="col-sm-3">
+					<select id="contasPagar_bancos" ng-model="contasPagar.oidBancos" name="oidBancos" class="form-control" required>
+						<option value="">[Selecione]</option>
+                        <option ng-repeat="bancos in items.bancoss" title="{{bancos.label}}" ng-selected="{{bancos.value == contasPagar.bancos}}" value="{{bancos.value}}">{{bancos.label}}</option>
+                    </select>
+				</div>
+				<div class="col-sm-1" style="padding: 0 0 0 0;"><p style="padding-top: 10px;">*</p></div>
+			</div>
+		<!--
+			<div class="form-group">
+				<label for="contasPagar_idRateio" class="col-sm-2 control-label">{{ 'contasPagar.idRateio' | translate }}:</label>
+				<div class="col-sm-2">
+					<input type="checkbox" id="contasPagar_idRateio" name="idRateio" ng-model="contasPagar.idRateio" value="{{contasPagar.idRateio}}" onclick="abrirModal();" style="margin-top: 9px;"/>
+				</div>
+				
+				<label for="contasPagar_nrVezesRateio" class="col-sm-2 control-label" ng-show="contasPagar.idRateio">{{ 'contasPagar.nrVezesRateio' | translate }}:</label>
+				<div class="col-sm-1">
+					<input type="text" id="contasPagar_nrVezesRateio" name="nrVezesRateio" ng-model="contasPagar.nrVezesRateio" ng-show="contasPagar.idRateio" value="{{contasPagar.nrVezesRateio}}" class="form-control" maxlength="2" onchange="abrirModal();"/>
+				</div>
+
+				
+				<label for="contasPagar_nrVezesRateio" class="col-sm-2 control-label" ng-show="contasPagar.idRateio" style="padding-top: 8px; padding-right: 4px;">{{ 'Valor Rateado' | translate }}:</label>
+				<div class="col-sm-1" style="padding-top: 8px; padding-right: 4px">
+					R$ {{ contasPagar.vrBruto/contasPagar.nrVezesRateio | number: 2 }}
+				</div>
+				
+			</div>
+		-->
+	<!--	<div class="modal fade" id="rateio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false" data-backdrop="static">
+			  	<div class="modal-dialog" role="document">
+			    	<div class="modal-content">
+			      		<div class="modal-header">
+			       			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        		<h4 class="modal-title" id="myModalLabel">Rateado em {{ contasPagar.nrVezesRateio  }} vezes:</h4>
+			      		</div>
+				      	<div class="modal-body form-group">
+							<label class="col-sm-2 control-label">Data</label>
+							
+			        		<div class="col-sm-2" style="padding-top: 44px; margin-left: -78px;">
+			        			{{ contasPagar.dtPrevisao | date:'dd/MM/yyyy' }}
+			        		</div>
+			        		
+							<label class="col-sm-2 control-label">Valor</label>	
+							
+			        		<div class="col-sm-2" style="padding-top: 44px; margin-left: -62px;">
+								{{ contasPagar.vrBruto/contasPagar.nrVezesRateio | number: 2 }}
+			        		</div>
+			      		</div>
+				      	<div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+					        <button type="button" class="btn btn-primary" id="btnAplicarRateio" name="btnAplicarRateio" ng-click="aplicarRateio()">Aplicar</button>
+				      	</div>
+		    		</div>
+			  	</div>
+			</div> 
+		-->	
+			<div class="input-group">
+				<p>{{ 'campos.obrigatorios.tela' | translate }}</p>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-warning btn-block" ng-click="delete(contasPagar.oidContasPagar)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" href="#/contasPagar" onclick="setTimeout(tabelaNova, 200);">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-info btn-block" ng-disabled="contaspagarForm.nrDocumentoFiscal.$invalid || contaspagarForm.oidPessoas.$invalid || contaspagarForm.vrBruto.$invalid || contaspagarForm.dtPrevisao.$invalid || contaspagarForm.dtVencimento.$invalid || contaspagarForm.oidBancos.$invalid" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+		
+		</fieldset>
+		
+		<script type="text/javascript">
+    	function abrirModal() {
+    		var rateio = $('#contasPagar_idRateio').prop('checked');
+    		var vezes = $('#contasPagar_nrVezesRateio').val();
+    		
+    		if(rateio == true && vezes != null && vezes > 0) {
+    			$('#rateio').modal('show');
+    		} else {
+    			$('#contasPagar_nrVezesRateio').val(null);    			
+    		}
+		}
+    </script>

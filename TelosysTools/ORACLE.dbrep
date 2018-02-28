@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+<tableList databaseId="0" databaseName="ORACLE" databaseProductName="Oracle" generation="2017-11-06 17:44:53">
+<table catalog="" databaseType="TABLE" javaBean="Usuarios" name="USUARIOS" schema="DB_FINANCEIRO">
+<column dbComment="" dbDefaultValue="" dbName="OID_USUARIOS" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="22" dbTypeName="NUMBER" inputType="number" javaName="oidUsuarios" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Oid usuarios" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="NM_USUARIO" dbNotNull="true" dbPosition="2" dbSize="20" dbTypeName="VARCHAR2" inputType="text" javaName="nmUsuario" javaType="java.lang.String" jdbcTypeCode="12" label="Nm usuario" maxLength="20" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="SENHA" dbNotNull="true" dbPosition="3" dbSize="8" dbTypeName="VARCHAR2" inputType="text" javaName="senha" javaType="java.lang.String" jdbcTypeCode="12" label="Senha" maxLength="8" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="NOME_COMPLETO" dbNotNull="false" dbPosition="4" dbSize="40" dbTypeName="VARCHAR2" inputType="text" javaName="nomeCompleto" javaType="java.lang.String" jdbcTypeCode="12" label="Nome completo" maxLength="40" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="EMAIL" dbNotNull="false" dbPosition="5" dbSize="20" dbTypeName="VARCHAR2" inputType="text" javaName="email" javaType="java.lang.String" jdbcTypeCode="12" label="Email" maxLength="20" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="'INSERT' " dbName="DS_USU_ALTER" dbNotNull="true" dbPosition="6" dbSize="30" dbTypeName="VARCHAR2" inputType="text" javaName="dsUsuAlter" javaType="java.lang.String" jdbcTypeCode="12" label="Ds usu alter" maxLength="30" notEmpty="true" notNull="true" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="SYSDATE " dbName="DT_ULT_ALTER" dbNotNull="true" dbPosition="7" dbSize="7" dbTypeName="DATE" inputType="" javaName="dtUltAlter" javaType="java.util.Date" jdbcTypeCode="93" label="Dt ult alter" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="0 " dbName="VS_VERSAO" dbNotNull="true" dbPosition="8" dbSize="22" dbTypeName="NUMBER" inputType="number" javaName="vsVersao" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Vs versao" notNull="true" selected="true"/>
+</table>
+</tableList>
+</root>

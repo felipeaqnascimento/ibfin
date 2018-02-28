@@ -1,0 +1,80 @@
+	<fieldset class="col-sm-12 bordure fieldset">
+		<legend class="legende">{{ 'Fornecedores' | translate }}</legend>
+		
+		<div class="container" style="padding-bottom: 15px; padding-right: 4%;" ng-show="mode != 'create'">
+			<div class="col-sm-2" style="float: right;" ng-show="mode != 'create'">
+				<a role="button" class="btn btn-info btn-block" href='#/pessoas/new'>{{ 'create' | translate }}</a>
+			</div>
+		</div>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			<div class="form-group">
+				<label for="pessoas_oidPessoas" class="col-sm-2 control-label">{{ 'pessoas.oidPessoas' | translate }}:</label>
+				<div class="col-sm-1">
+					<input type="text" id="pessoas_oidPessoas" name="oidPessoas" ng-model="pessoas.oidPessoas" class="form-control" maxLength="20"  ng-disabled="true"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="pessoas_nmPessoa" class="col-sm-2 control-label">{{ 'pessoas.nmFornecedor' | translate }}:</label>
+				<div class="col-sm-4">
+					<input type="text" id="pessoas_nmPessoa" name="nmPessoa" ng-model="pessoas.nmPessoa" class="form-control" maxLength="100" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="pessoas_nrCpfCnpj" class="col-sm-2 control-label">{{ 'pessoas.nrCpfCnpj' | translate }}:</label>
+				<div class="col-sm-3">
+					<input type="text" id="pessoas_nrCpfCnpj" name="nrCpfCnpj" ng-model="pessoas.nrCpfCnpj" mask="99.999.999/9999-99" class="form-control" maxLength="14" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="pessoas_nmCidade" class="col-sm-2 control-label">{{ 'pessoas.nmCidade' | translate }}:</label>
+				<div class="col-sm-3">
+					<input type="text" id="pessoas_nmCidade" name="nmCidade" ng-model="pessoas.nmCidade" class="form-control" maxLength="50" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="pessoas_nrTelefone" class="col-sm-2 control-label">{{ 'pessoas.nrTelefone' | translate }}:</label>
+				<div class="col-sm-2">
+					<input type="text" id="pessoas_nrTelefone" name="nrTelefone" ng-model="pessoas.nrTelefone" mask="(99) 9?9999-9999" class="form-control" maxLength="20" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="pessoas_nrEmail" class="col-sm-2 control-label">{{ 'pessoas.nrEmail' | translate }}:</label>
+				<div class="col-sm-3">
+					<input type="email" id="pessoas_nrEmail" name="nrEmail" ng-model="pessoas.nrEmail" class="form-control" maxLength="100"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="pessoas_nmUf" class="col-sm-2 control-label">{{ 'pessoas.nmUf' | translate }}:</label>
+				<div class="col-sm-1">
+					<input type="text" id="pessoas_nmUf" name="nmUf" ng-model="pessoas.nmUf" class="form-control" maxLength="2" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="pessoas_nmContato" class="col-sm-2 control-label">{{ 'pessoas.nmContato' | translate }}:</label>
+				<div class="col-sm-2">
+					<input type="text" id="pessoas_nmContato" name="nmContato" ng-model="pessoas.nmContato" class="form-control" maxLength="100" />
+				</div>
+			</div>
+			
+			<div class="input-group">
+				<p>{{ 'campos.obrigatorios.tela' | translate }}</p>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-warning btn-block" ng-click="delete(pessoas.oidPessoas)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" href="#/pessoasFornec" onclick="setTimeout(tabelaNova, 200);">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-info btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>
