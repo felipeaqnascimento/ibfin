@@ -19,7 +19,7 @@
         <thead>
             <tr>
                 <th class="no-sort"></th>
-                <th>{{ 'contasReceber.oidContasReceber' | translate }}</th>
+                <!-- <td>{{contasReceber.oidContasReceber}}</td> -->
                 <th>{{ 'contasReceber.nrDocumentoFiscal' | translate }}</th>
                 <th>{{ 'contasReceber.dtVencimento' | translate }}</th>
                 <th>{{ 'contasReceber.dtPrevisao' | translate }}</th>
@@ -53,7 +53,7 @@
                 <td>
                     <input type="checkbox" id="efetMarca" onclick="habilitaData(this);" ng-model="checked" checked>
                 </td>
-                <td>{{contasReceber.oidContasReceber}}</td>
+               	<!-- <td>{{contasReceber.oidContasReceber}}</td> -->
                 <td>{{contasReceber.nrDocumentoFiscal}}</td>
                 <td>{{contasReceber.dtVencimento | date:'dd/MM/yyyy'}}</td>
                 <td>

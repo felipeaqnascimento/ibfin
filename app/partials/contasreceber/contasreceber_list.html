@@ -23,7 +23,7 @@
 			<table id="tabelaProg" class="table table-striped table-bordered" cellspacing="0" width="100%">
 				<thead>
 					<tr>
-						<th>{{ 'contasReceber.oidContasReceber' | translate }}</th>
+						<!-- <td>{{contasReceber.oidContasReceber}}</td> -->
 						<th>{{ 'contasReceber.nrDocumentoFiscal' | translate }}</th>
 						<th>{{ 'contasReceber.oidPessoas' | translate }}</th>
 						<th>{{ 'contasReceber.dtPrevisao' | translate }}</th>
@@ -58,7 +58,7 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="contasReceber in contasRecebers">
-						<td>{{contasReceber.oidContasReceber}}</td>
+						<!-- <td>{{contasReceber.oidContasReceber}}</td> -->
 						<td>{{contasReceber.nrDocumentoFiscal}}</td>
 						<td>{{contasReceber.oidPessoas | number }}</td>
 						<td>{{contasReceber.dtPrevisao | date:'shortDate'}}</td>
