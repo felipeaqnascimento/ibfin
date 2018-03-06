@@ -24,7 +24,7 @@
 				<th>{{ 'contasReceber.nrDocumentoFiscal' | translate }}</th>
 				<th>{{ 'contasReceber.dtVencimento' | translate }}</th>
 				<th>{{ 'contasReceber.dtPrevisao' | translate }}</th>
-				<th>{{ 'contasReceber.dtRecebimento' | translate }}</th>
+                <th>{{ 'contasReceber.dtRecebimento' | translate }}</th>
 				<th>{{ 'contasReceber.vrBruto' | translate }}</th>
 				<th>{{ 'contasReceber.vrJuros' | translate }}</th>
 				<th>{{ 'contasReceber.vrDesconto' | translate }}</th>
@@ -57,10 +57,16 @@
 				<!-- <td>{{contasReceber.oidContasReceber}}</td> -->
 				<td>{{contasReceber.nrDocumentoFiscal}}</td>
 				<td>{{contasReceber.dtVencimento | date:'dd/MM/yyyy'}}</td>
-				<td>
-					<input id="contasReceber_dtPrevisao" bs-datepicker data-date-format="dd/MM/yyyy" placeholder="01/01/1900" data-autoclose="1"
-					 ng-model="contasReceber.dtPrevisao" size="11" disabled name="dtPrevisao" class="form-control" ng-disabled="checked" />
-				</td>
+				<td><input id="contasReceber_dtPrevisao" 
+                    bs-datepicker data-date-format="dd/MM/yyyy" 
+                    placeholder="01/01/1900" 
+                    data-autoclose="1" 
+                    ng-model="contasReceber.dtPrevisao" 
+                    size="11" 
+                    disabled name="dtPrevisao" 
+                    class="form-control input-sm"
+                    ng-disabled="checked"/>
+                </td>
 				<td>{{contasReceber.dtRecebimento | date:'dd/MM/yyyy'}}</td>
 				<td>R$ {{contasReceber.vrBruto | number:2 }}</td>
 				<td>R$ {{contasReceber.vrJuros | number:2 }}</td>
